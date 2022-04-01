@@ -1,0 +1,33 @@
+server:
+  port: 8020
+  servlet:
+    context-path: /api/v1/
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exam?currentSchema=public
+    username: postgres
+    password: 1
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 120000
+      max-lifetime: 120000
+      minimum-idle: 4
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: info
+    com:
+      spring:
+        ibatis: DEBUG
+    org:
+      springframework:
+        web: debug
+        hibernate: error
+        data: error
